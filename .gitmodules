@@ -1,0 +1,15 @@
+[submodule "KPI-Engine"]
+	path = KPI-Engine
+	url = git@github.com:Kreative-Performative-Individuals/KPI-Engine.git
+[submodule "KB"]
+	path = KB
+	url = git@github.com:Kreative-Performative-Individuals/KB.git
+[submodule "RAG5"]
+	path = RAG5
+	url = git@github.com:Kreative-Performative-Individuals/RAG5.git
+[submodule "smart-industrial-database"]
+	path = smart-industrial-database
+	url = git@github.com:Kreative-Performative-Individuals/smart-industrial-database.git
+[submodule "data-preprocessing-"]
+	path = data-preprocessing-
+	url = git@github.com:Kreative-Performative-Individuals/data-preprocessing-.git
