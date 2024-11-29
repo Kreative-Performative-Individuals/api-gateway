@@ -13,3 +13,6 @@
 [submodule "data-preprocessing-"]
 	path = data-preprocessing-
 	url = git@github.com:Kreative-Performative-Individuals/data-preprocessing-.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:Kreative-Performative-Individuals/frontend.git
