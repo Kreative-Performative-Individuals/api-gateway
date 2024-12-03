@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
     networks:
       - kreative-performative-individuals-network
-  
+
   ollama:
     image: ollama/ollama
     container_name: ollama
@@ -69,6 +69,18 @@ services:
     networks:
       - kreative-performative-individuals-network
 
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    container_name: frontend-service
+    networks:
+      - kreative-performative-individuals-network
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
 volumes:
   pg_data:
     name: pg_data
@@ -76,6 +88,3 @@ volumes:
 networks:
   kreative-performative-individuals-network:
     driver: bridge
-
-
-

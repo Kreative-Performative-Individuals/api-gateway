@@ -19,4 +19,16 @@ The **.env** should include these information:
 
 ``DB_PASSWORD="password"``
 
-Change every reference inside the ``main.py`` of the database, to the HOST ip. 
+Change every reference inside the ``main.py`` of the database, to the HOST ip with the database service name, so change from the hardcoded IP address to ``kpi-database``.
+
+Put the docker compose file, inside the root folder.
+
+If not present already (waiting for merge of the pull request), put the provided docker file inside the frontend folder.
+
+Run: 
+
+``docker compose up --build``
+
+The first build will take a lot of time. 
+
+Right after test the integration among different services.
