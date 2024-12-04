@@ -25,3 +25,11 @@ Run:
 The first build will take a lot of time. 
 
 Right after test the integration among different services.
+
+If you want to test, the GUI as well, navigate inside the fronted folder and start the container by running:
+
+``docker build -t frontend . ``
+
+``docker run -d --name frontend -p 3000:3000 frontend``
+
+Comment out the part that concers RAG and ollama since it's really heavy. To run ollama you need to have an Nvidia GPU and things didn't work on out tests on linux even with proprietary drivers and nvidia card.
