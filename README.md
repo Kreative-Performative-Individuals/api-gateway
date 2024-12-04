@@ -40,6 +40,6 @@ If you want to test, the GUI as well, navigate inside the frontend folder and st
 To interact with the gui go to [http://localhost:3000](http://localhost:3000)
 
 ### ⚠️ Important Information
-Comment out the part that concers RAG and ollama since it's really heavy. To run ollama you need to have an Nvidia GPU and things didn't work on out tests on linux even with proprietary drivers and nvidia card.
+Comment out the part that concers RAG and ollama since it's really heavy. To run ollama you need to have an Nvidia GPU and things didn't work on our tests on linux even with proprietary drivers and nvidia card.
 
 If the database doesn't work, try to run the compose again in order to be sure that the initialization script is executed.
