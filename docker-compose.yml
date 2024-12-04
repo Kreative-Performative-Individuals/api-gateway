@@ -28,7 +28,7 @@ services:
 
   kpi-engine:
     build:
-      context: ./kpi-engine
+      context: ./KPI-Engine
     container_name: kpi-engine-container
     ports:
       - "8008:8008"
