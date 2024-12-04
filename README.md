@@ -37,6 +37,7 @@ If you want to test, the GUI as well, navigate inside the fronted folder and sta
 
 ``docker run -d --name frontend -p 3000:3000 frontend``
 
-To interacti with the gui go to [http://localhost:3000](http://localhost:3000)
+To interact with the gui go to [http://localhost:3000](http://localhost:3000)
 
+### ⚠️ Important Information
 Comment out the part that concers RAG and ollama since it's really heavy. To run ollama you need to have an Nvidia GPU and things didn't work on out tests on linux even with proprietary drivers and nvidia card.
