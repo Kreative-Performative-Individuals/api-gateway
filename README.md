@@ -7,12 +7,17 @@ Clone all the repos needed:
 - Data preprocessing 
 - Rag 
 
-git clone git@github.com:Kreative-Performative-Individuals/KB.git
-git clone git@github.com:Kreative-Performative-Individuals/smart-industrial-database.git
-git clone git@github.com:Kreative-Performative-Individuals/data-preprocessing-.git
-git clone git@github.com:Kreative-Performative-Individuals/RAG5.git
-git clone git@github.com:Kreative-Performative-Individuals/KPI-Engine.git
-git clone git@github.com:Kreative-Performative-Individuals/frontend.git
+``git clone git@github.com:Kreative-Performative-Individuals/KB.git``
+
+``git clone git@github.com:Kreative-Performative-Individuals/smart-industrial-database.git``
+
+``git clone git@github.com:Kreative-Performative-Individuals/data-preprocessing-.git``
+
+``git clone git@github.com:Kreative-Performative-Individuals/RAG5.git``
+
+``git clone git@github.com:Kreative-Performative-Individuals/KPI-Engine.git``
+
+``git clone git@github.com:Kreative-Performative-Individuals/frontend.git``
 
 Run: 
 
