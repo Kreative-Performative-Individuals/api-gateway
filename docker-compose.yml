@@ -69,18 +69,6 @@ services:
     networks:
       - kreative-performative-individuals-network
 
-  frontend:
-    build:
-      context: ./frontend
-    ports:
-      - "3000:3000"
-    container_name: frontend-service
-    networks:
-      - kreative-performative-individuals-network
-    environment:
-      - NODE_ENV=production
-    restart: unless-stopped
-
 volumes:
   pg_data:
     name: pg_data
