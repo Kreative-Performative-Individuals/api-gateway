@@ -70,7 +70,7 @@ To test the **GUI**, follow these steps:
 ## ⚠️ Important Notes
 
 1. **Resource-Heavy Components**:
-   - Comment out configurations related to **RAG** and **Ollama** if you're experiencing performance issues. 
+   - Comment out configurations related to **RAG** and **Ollama** if you don't need the rag since it's heavy both on disk and on computation. 
    - Running **Ollama** requires an Nvidia GPU, and it may not function correctly on Linux, even with proprietary drivers.
 
 2. **Database Initialization**:
