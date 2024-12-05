@@ -1,50 +1,83 @@
-### Prerequisites
-- Docker.
-- Nvidia GPU card (to run the model).
-- Windows Operating system.
+# Project Setup Guide
 
-### Starting 
-Clone all the repos needed:
-- Frontend
-- Knowledge base 
-- Database
-- Kpi-engine 
-- Data preprocessing 
-- Rag 
+## Prerequisites
+- **Docker**: Ensure you have Docker installed and running.
+- **Nvidia GPU**: Required to run the model.
+- **Windows Operating System**: The tested environment for this setup.
 
-``git clone git@github.com:Kreative-Performative-Individuals/KB.git``
+---
 
-``git clone git@github.com:Kreative-Performative-Individuals/smart-industrial-database.git``
+## Setup Instructions
 
-``git clone git@github.com:Kreative-Performative-Individuals/data-preprocessing-.git``
+### Clone Required Repositories
+Run the following commands to clone the necessary repositories:
 
-``git clone git@github.com:Kreative-Performative-Individuals/RAG5.git``
+```bash
+git clone git@github.com:Kreative-Performative-Individuals/KB.git
+git clone git@github.com:Kreative-Performative-Individuals/smart-industrial-database.git
+git clone git@github.com:Kreative-Performative-Individuals/data-preprocessing-.git
+git clone git@github.com:Kreative-Performative-Individuals/RAG5.git
+git clone git@github.com:Kreative-Performative-Individuals/KPI-Engine.git
+git clone git@github.com:Kreative-Performative-Individuals/frontend.git
+```
 
-``git clone git@github.com:Kreative-Performative-Individuals/KPI-Engine.git``
+---
 
-``git clone git@github.com:Kreative-Performative-Individuals/frontend.git``
+### Run Docker Compose
 
-Run: 
+1. Build and start all services:
+    ```bash
+    docker compose up --build
+    ```
 
-``docker compose up --build``
+2. Stop all services:
+    ```bash
+    docker compose down
+    ```
 
-``docker compose down``
+3. Rebuild and start again (the first build may take some time):
+    ```bash
+    docker compose up --build
+    ```
 
-``docker compose up --build``
+---
 
-The first build will take a lot of time. 
+### Test Integration
 
-Right after test the integration among different services.
+Ensure that all services communicate properly after the initial setup. 
 
-If you want to test, the GUI as well, navigate inside the frontend folder and start the container by running:
+To test the **GUI**, follow these steps:
 
-``docker build -t frontend . ``
+1. Navigate to the `frontend` folder:
+    ```bash
+    cd frontend
+    ```
 
-``docker run -d --name frontend -p 3000:3000 frontend``
+2. Build the frontend Docker container:
+    ```bash
+    docker build -t frontend .
+    ```
 
-To interact with the gui go to [http://localhost:3000](http://localhost:3000)
+3. Run the container:
+    ```bash
+    docker run -d --name frontend -p 3000:3000 frontend
+    ```
 
-### ⚠️ Important Information
-Comment out the part that concers RAG and ollama since it's really heavy. To run ollama you need to have an Nvidia GPU and things didn't work on our tests on linux even with proprietary drivers and nvidia card.
+4. Open your browser and visit [http://localhost:3000](http://localhost:3000) to interact with the GUI.
 
-If the database doesn't work, try to run the compose again in order to be sure that the initialization script is executed.
+---
+
+## ⚠️ Important Notes
+
+1. **Resource-Heavy Components**:
+   - Comment out configurations related to **RAG** and **Ollama** if you're experiencing performance issues. 
+   - Running **Ollama** requires an Nvidia GPU, and it may not function correctly on Linux, even with proprietary drivers.
+
+2. **Database Initialization**:
+   - If the database fails to start, rerun the compose command to ensure the initialization script executes properly:
+     ```bash
+     docker compose up --build
+     ```
+---
+
+Happy coding! 🚀
