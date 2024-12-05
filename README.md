@@ -1,3 +1,8 @@
+### Prerequisites
+- Docker.
+- Nvidia GPU card (to run the model).
+- Windows Operating system.
+
 ### Starting 
 Clone all the repos needed:
 - Frontend
@@ -25,7 +30,7 @@ Run:
 
 ``docker compose down``
 
-``docker compoes up --build``
+``docker compose up --build``
 
 The first build will take a lot of time. 
 
