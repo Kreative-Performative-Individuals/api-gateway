@@ -1,1 +1,133 @@
-Home page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .copy-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background: #45a049;
+        }
+
+        .success-message {
+            color: green;
+            text-align: center;
+            margin-top: 1em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Documentation Links</h1>
+    </header>
+
+    <div class="container">
+        <h1>Available Links</h1>
+        <ul id="link-list">
+            <!-- Links will be dynamically inserted here -->
+        </ul>
+        <p class="success-message" id="success-message">Link copied to clipboard!</p>
+    </div>
+
+    <script>
+        // Array of links (edit this array to include your links)
+        const links = [
+            { name: "Google", url: "https://www.google.com" },
+            { name: "MDN Web Docs", url: "https://developer.mozilla.org" },
+            { name: "GitHub", url: "https://github.com" },
+        ];
+
+        // Populate the link list dynamically
+        const linkList = document.getElementById('link-list');
+
+        links.forEach(link => {
+            const listItem = document.createElement('li');
+
+            const linkElement = document.createElement('a');
+            linkElement.href = link.url;
+            linkElement.textContent = link.name;
+            linkElement.target = "_blank";
+
+            const copyButton = document.createElement('button');
+            copyButton.textContent = "Copy Link";
+            copyButton.className = "copy-btn";
+            copyButton.addEventListener('click', () => {
+                navigator.clipboard.writeText(link.url).then(() => {
+                    const successMessage = document.getElementById('success-message');
+                    successMessage.style.display = 'block';
+                    setTimeout(() => successMessage.style.display = 'none', 2000);
+                });
+            });
+
+            listItem.appendChild(linkElement);
+            listItem.appendChild(copyButton);
+            linkList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
