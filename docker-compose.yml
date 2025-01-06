@@ -23,8 +23,6 @@ services:
     container_name: kb-service-container
     ports:
       - "8001:8001"
-    volumes:
-      - ./KB/backups/0.owl:/app/backups/0.owl
     networks:
       - kreative-performative-individuals-network
 
@@ -60,7 +58,7 @@ services:
       - KAFKA_PORT=29092
       - MAX_WORKERS=4
     ports:
-      - 8003:8003
+      - "8003:8003"
     restart: always
     depends_on:
       - zookeeper
@@ -75,7 +73,7 @@ services:
     networks:
       - broker-kafka
     ports:
-      - 2181:2181
+      - "2181:2181"
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -88,8 +86,8 @@ services:
     depends_on:
       - zookeeper
     ports:
-      - 9092:9092
-      - 9101:9101
+      - "9092:9092"
+      - "9101:9101"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ADVERTISED_HOST_NAME: kafka:9092
@@ -109,6 +107,35 @@ services:
       - 19000:9000
     environment:
       KAFKA_BROKERCONNECT: kafka:29092
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - kreative-performative-individuals-network
+    entrypoint: /bin/bash -c "ollama serve & sleep 5 && ollama pull llama3.2 && ollama pull nomic-embed-text && tail -f /dev/null"
+
+  rag:
+    build:
+      context: ./RAG5
+    environment:
+      - OLLAMA_ORIGINS=http://ollama:11434
+    container_name: rag
+    ports: 
+      - "8005:8005"
+    depends_on:
+      - ollama
+    networks:
+      - kreative-performative-individuals-network
 
 volumes:
   pg_data:
